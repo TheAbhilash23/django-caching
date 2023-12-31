@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'dango_filters',
+    'django_filters',
     'profiles',
 
 ]
@@ -132,3 +132,20 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny'
     ]
 }
+
+# Cache settings
+# from django.core.cache import
+# from redis.connection import
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379",
+        "TIMEOUT": 60*30,
+        "OPTIONS": {
+            "db": "2",
+            "parser_class": "redis._parsers.hiredis._HiredisParser",
+            "pool_class": "redis.BlockingConnectionPool",
+        },
+    }
+}
+CACHE_TOUCH_TTL = 60 * 5

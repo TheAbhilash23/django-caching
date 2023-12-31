@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from django.db.models import Manager
 from django.utils.translation import gettext_lazy as _
 # Create your models here.
 UserModel = get_user_model()
@@ -19,6 +20,8 @@ class Profile(models.Model):
         _('Picture'),
         upload_to='uploads/profile_images',
     )
+
+    objects = Manager()
 
     def __str__(self):
         return f'{self.User}'

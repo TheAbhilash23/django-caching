@@ -1,4 +1,8 @@
 Django==4.2
+django-filter==23.5
 djangorestframework==3.14.0
+hiredis==2.3.2
+ipdb==0.13.13
 Pillow==10.1.0
+redis==5.0.1
 
